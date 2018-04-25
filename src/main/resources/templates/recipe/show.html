@@ -14,37 +14,37 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.js"
             integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
             crossorigin="anonymous" th:src="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.js}"></script>
-
 </head>
 
 <body>
 <div class="container-fluid" style="margin-top: 20px">
-    <div class="card mb-3" style="max-width: 50rem;">
+    <div class="card mb-12" style="max-width: 75rem;">
+        <!--/*@thymesVar id="recipe" type="com.sudee.recipeapp.models.Recipe"*/-->
         <h1 class="card-header text-white bg-dark" th:text="${recipe.description}">Recipe Description Here</h1>
         <div class="card-body">
             <h5 class="card-title">Categories</h5>
-                <ul>
-                <li>cat one</li>
-                <li>cat two</li>
-                <li>cat three</li>
-                </ul>
+            <ul>
+                <li th:each="category : ${recipe.categories}">
+                    <span th:text="${category.description}"></span>
+                </li>
+            </ul>
         </div>
     </div>
-    <div class="card mb-12" style="max-width: 75rem;">
-        <h1 class="card-header text-white bg-dark">Recipe Description Here</h1>
+    <div class="card mb-12" style="max-width: 75rem; margin-top: 20px;">
+        <h3 class="card-header text-white bg-dark">Information</h3>
         <div class="card-body">
             <div class="row">
                 <div class="col-md-3">
-                <h5>Prep Time:</h5>
+                    <h5>Prep Time:</h5>
                 </div>
                 <div class="col-md-3">
-                <p>30 min</p>
+                   <p th:text="${recipe.prepTime} + ' min'">30 min</p>
                 </div>
                 <div class="col-md-3">
-                <h5>Difficulty:</h5>
+                   <h5>Difficulty:</h5>
                 </div>
                 <div class="col-md-3">
-                <p>Easy</p>
+                  <p th:text="${recipe.difficulty}">Easy</p>
                 </div>
             </div>
             <div class="row">
@@ -52,13 +52,13 @@
                     <h5>Cooktime:</h5>
                 </div>
                 <div class="col-md-3">
-                    <p>30 min</p>
+                    <p th:text="${recipe.cookTime} + ' min'">30 min</p>
                 </div>
                 <div class="col-md-3">
                     <h5>Servings:</h5>
                 </div>
                 <div class="col-md-3">
-                    <p>4</p>
+                    <p th:text="${recipe.servings}">4</p>
                 </div>
             </div>
             <div class="row">
@@ -66,27 +66,27 @@
                     <h5>Source:</h5>
                 </div>
                 <div class="col-md-3">
-                    <p>30 min</p>
+                    <p th:text="${recipe.source}">Source</p>
                 </div>
                 <div class="col-md-3">
                     <h5>URL:</h5>
                 </div>
                 <div class="col-md-3">
-                    <p>http://www.example.com</p>
+                    <p th:text="${recipe.url}">http://www.example.com</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="card mb-3" style="max-width: 50rem;">
-        <h1 class="card-header text-white bg-dark">Directions</h1>
+    <div class="card mb-12" style="max-width: 75rem; margin-top: 20px;">
+        <h3 class="card-header text-white bg-dark">Directions</h3>
         <div class="card-body">
-            <p>Bacon ipsum dolor amet tenderloin sausage pancetta, porchetta filet mignon leberkas strip steak hamburger capicola buffalo shankle pastrami bacon ham hock ball tip. Frankfurter pastrami prosciutto meatball turkey alcatra shoulder landjaeger spare ribs burgdoggen pork pancetta buffalo. </p>
+            <p th:text="${recipe.directions}">Bacon ipsum dolor amet tenderloin sausage pancetta, porchetta filet mignon leberkas strip steak hamburger capicola buffalo shankle pastrami bacon ham hock ball tip. Frankfurter pastrami prosciutto meatball turkey alcatra shoulder landjaeger spare ribs burgdoggen pork pancetta buffalo. </p>
         </div>
     </div>
-    <div class="card mb-3" style="max-width: 50rem;">
-        <h1 class="card-header text-white bg-dark">Notes</h1>
+    <div class="card mb-12" style="max-width: 75rem; margin-top: 20px;">
+        <h3 class="card-header text-white bg-dark">Notes</h3>
         <div class="card-body">
-            <p>Bacon ipsum dolor amet tenderloin sausage pancetta, porchetta filet mignon leberkas strip steak hamburger capicola buffalo shankle pastrami bacon ham hock ball tip. Frankfurter pastrami prosciutto meatball turkey alcatra shoulder landjaeger spare ribs burgdoggen pork pancetta buffalo. </p>
+            <p th:text="${recipe.notes.recipeNotes}">Bacon ipsum dolor amet tenderloin sausage pancetta, porchetta filet mignon leberkas strip steak hamburger capicola buffalo shankle pastrami bacon ham hock ball tip. Frankfurter pastrami prosciutto meatball turkey alcatra shoulder landjaeger spare ribs burgdoggen pork pancetta buffalo. </p>
         </div>
     </div>
 </div>

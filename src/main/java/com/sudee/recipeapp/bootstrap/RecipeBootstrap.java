@@ -101,6 +101,9 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         guacRecipe.setDescription("Perfect Guacamole");
         guacRecipe.setPrepTime(10);
         guacRecipe.setCookTime(0);
+        guacRecipe.setServings(12);
+        guacRecipe.setUrl("http://www.recipes.com");
+        guacRecipe.setSource("Sharon Suderman");
         guacRecipe.setDifficulty(Difficulty.EASY);
         guacRecipe.setDirections("1 Cut avocado, remove flesh: Cut the avocados in half. Remove seed. Score the inside of the avocado with a blunt knife and scoop out the flesh with a spoon. (See How to Cut and Peel an Avocado.) Place in a bowl.\n" +
                 "2 Mash with a fork: Using a fork, roughly mash the avocado. (Don't overdo it! The guacamole should be a little chunky.)\n" +
@@ -136,6 +139,9 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         tacoRecipe.setDescription("Spicy Grilled Chicken Taco");
         tacoRecipe.setCookTime(9);
         tacoRecipe.setPrepTime(20);
+        tacoRecipe.setServings(8);
+        tacoRecipe.setUrl("http://www.recipes.com");
+        tacoRecipe.setSource("Sharon Suderman");
         tacoRecipe.setDifficulty(Difficulty.MODERATE);
         tacoRecipe.setDirections("1 Prepare a gas or charcoal grill for medium-high, direct heat.\n" +
                 "2 Make the marinade and coat the chicken: In a large bowl, stir together the chili powder, oregano, cumin, sugar, salt, garlic and orange zest. Stir in the orange juice and olive oil to make a loose paste. Add the chicken to the bowl and toss to coat all over.\n" +
@@ -168,6 +174,8 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         tacoRecipe.addIngredient(new Ingredient("Cilantro", new BigDecimal(4), eachUom));
         tacoRecipe.addIngredient(new Ingredient("Sour Cream", new BigDecimal(4), cupUom));
         tacoRecipe.addIngredient(new Ingredient("Lime Wedges", new BigDecimal(4), eachUom));
+
+        tacoRecipe.getCategories().add(mexicanCategory);
 
         recipes.add(tacoRecipe);
         return recipes;
