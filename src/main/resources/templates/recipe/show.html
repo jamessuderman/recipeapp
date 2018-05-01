@@ -18,7 +18,7 @@
 
 <body>
 <!--/*@thymesVar id="recipe" type="com.sudee.recipeapp.models.Recipe"*/-->
-<div class="container-fluid" style="margin-top: 20px">
+<div class="container-fluid col-md-6 offset-3" style="margin-top: 20px">
     <div class="card mb-12" style="max-width: 75rem;">
         <h1 class="card-header text-white bg-dark" th:text="${recipe.description}">Recipe Description Here</h1>
         <div class="card-body">
@@ -83,7 +83,7 @@
             <p th:text="${recipe.directions}">Bacon ipsum dolor amet tenderloin sausage pancetta, porchetta filet mignon leberkas strip steak hamburger capicola buffalo shankle pastrami bacon ham hock ball tip. Frankfurter pastrami prosciutto meatball turkey alcatra shoulder landjaeger spare ribs burgdoggen pork pancetta buffalo. </p>
         </div>
     </div>
-    <div class="card mb-12" style="max-width: 75rem; margin-top: 20px;">
+    <div class="card mb-12" style="max-width: 75rem; margin-top: 20px; margin-bottom: 20px">
         <h3 class="card-header text-white bg-dark">Notes</h3>
         <div class="card-body">
             <p th:text="${recipe.notes.recipeNotes}">Bacon ipsum dolor amet tenderloin sausage pancetta, porchetta filet mignon leberkas strip steak hamburger capicola buffalo shankle pastrami bacon ham hock ball tip. Frankfurter pastrami prosciutto meatball turkey alcatra shoulder landjaeger spare ribs burgdoggen pork pancetta buffalo. </p>
