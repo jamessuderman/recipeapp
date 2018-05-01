@@ -87,8 +87,7 @@
                                 <select class="form-control" th:field="*{difficulty}">
                                     <option th:each="difficultyValue : ${T(com.sudee.recipeapp.models.Difficulty).values()}"
                                             th:value="${difficultyValue.name()}"
-                                            th:text="${difficultyValue.name()}"
-                                    >val
+                                            th:text="${difficultyValue.name()}">
                                     </option>
                                 </select>
                                 <select class="form-control" th:remove="all">
@@ -105,10 +104,10 @@
                                 <input type="text" class="form-control" th:field="*{servings}"
                                        th:errorclass="has-error"/>
                                 <span class="help-block" th:if="${#fields.hasErrors('servings')}">
-                                        <ul>
-                                            <li th:each="err : ${#fields.errors('servings')}" th:text="${err}"/>
-                                        </ul>
-                                    </span>
+                                    <ul>
+                                        <li th:each="err : ${#fields.errors('servings')}" th:text="${err}"/>
+                                    </ul>
+                                </span>
                             </div>
                             <div class="col-md-3 form-group">
                                 <label>Source:</label>
@@ -131,8 +130,7 @@
                 <div class="card mb-12" style="max-width: 75rem; margin-top: 20px;">
                     <h1 class="card-header text-white bg-dark">Ingredients</h1>
                     <div class="card-body">
-                        <a class="btn btn-default" href="#"
-                           th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}" role="button">View</a>
+                        <a class="btn btn-default" href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}" role="button">View</a>
                     </div>
                     <div class="panel-body">
                         <div class="row">
