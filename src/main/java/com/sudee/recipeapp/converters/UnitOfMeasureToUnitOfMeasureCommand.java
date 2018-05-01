@@ -19,7 +19,14 @@ public class UnitOfMeasureToUnitOfMeasureCommand implements Converter<UnitOfMeas
     @Synchronized
     @Nullable
     @Override
-    public UnitOfMeasureCommand convert(UnitOfMeasure source) {
+    public UnitOfMeasureCommand convert(UnitOfMeasure unitOfMeasure) {
+
+        if (unitOfMeasure != null) {
+            final UnitOfMeasureCommand uomc = new UnitOfMeasureCommand();
+            uomc.setId(unitOfMeasure.getId());
+            uomc.setDescription(unitOfMeasure.getDescription());
+            return uomc;
+        }
         return null;
     }
 }

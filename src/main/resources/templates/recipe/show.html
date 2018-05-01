@@ -17,9 +17,9 @@
 </head>
 
 <body>
+<!--/*@thymesVar id="recipe" type="com.sudee.recipeapp.models.Recipe"*/-->
 <div class="container-fluid" style="margin-top: 20px">
     <div class="card mb-12" style="max-width: 75rem;">
-        <!--/*@thymesVar id="recipe" type="com.sudee.recipeapp.models.Recipe"*/-->
         <h1 class="card-header text-white bg-dark" th:text="${recipe.description}">Recipe Description Here</h1>
         <div class="card-body">
             <h5 class="card-title">Categories</h5>

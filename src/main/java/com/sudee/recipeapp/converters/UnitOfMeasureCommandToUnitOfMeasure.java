@@ -21,7 +21,7 @@ public class UnitOfMeasureCommandToUnitOfMeasure implements Converter<UnitOfMeas
     @Nullable
     @Override
     public UnitOfMeasure convert(UnitOfMeasureCommand source) {
-        if(source == null) {
+        if (source == null) {
             return null;
         }
 
