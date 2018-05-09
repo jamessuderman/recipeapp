@@ -11,4 +11,6 @@ import com.sudee.recipeapp.models.Ingredient;
 
 public interface IngredientService {
     IngredientCommand findRecipeByIngredientId(Long recipeId, Long ingredientId);
+    IngredientCommand saveIngredientCommand(IngredientCommand command);
+    void deleteIngredient(Long recipeId, Long id);
 }

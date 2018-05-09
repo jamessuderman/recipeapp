@@ -20,7 +20,12 @@
     <!--/*@thymesVar id="recipe" type="com.sudee.recipeapp.models.Recipe"*/-->
     <div class="container-fluid col-md-6 offset-3" style="margin-top: 20px">
         <div class="card mb-12" style="max-width: 75rem;">
-            <h1 class="card-header text-white bg-dark">Ingredients</h1>
+            <span class="card-header text-white bg-dark">
+                <div class="row">
+                    <h3 style="margin-left: 15px;">Ingredients</h3>
+                    <a class="btn btn-light offset-9" href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/new'}" role="button">New</a>
+                </div>
+            </span>
             <div class="card-body">
                 <div class="table-responsive" th:if="${not #lists.isEmpty(recipe.ingredients)}">
                     <table class="table table-hover">
@@ -37,8 +42,8 @@
                             <td th:text="${ingredient.id}"></td>
                             <td th:text="${ingredient.description} + ' - ' + ${ingredient.amount} + ' ' + ${ingredient.uom.getDescription()}"></td>
                             <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id} + '/show'}">View</a></td>
-                            <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient' + ${ingredient.id} + '/update'}">Update</a></td>
-                            <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient' + ${ingredient.id} + '/delete'}">Delete</a></td>
+                            <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id} + '/update'}">Update</a></td>
+                            <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id} + '/delete'}">Delete</a></td>
                         </tr>
                     </table>
                 </div>
