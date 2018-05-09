@@ -6,7 +6,9 @@
 
 package com.sudee.recipeapp.controllers;
 
+import com.sudee.recipeapp.commands.IngredientCommand;
 import com.sudee.recipeapp.commands.RecipeCommand;
+import com.sudee.recipeapp.services.IngredientService;
 import com.sudee.recipeapp.services.RecipeService;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,6 +30,8 @@ public class IngredientControllerTest {
 
     @Mock
     private RecipeService recipeService;
+    @Mock
+    private IngredientService ingredientService;
 
     private IngredientController ingredientController;
 
@@ -37,7 +41,7 @@ public class IngredientControllerTest {
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
-        ingredientController = new IngredientController(recipeService);
+        ingredientController = new IngredientController(recipeService, ingredientService);
         mockMvc = MockMvcBuilders.standaloneSetup(ingredientController).build();
     }
 
@@ -53,5 +57,17 @@ public class IngredientControllerTest {
                 .andExpect(model().attributeExists("recipe"));
         // then
         verify(recipeService, times(1)).findCommandById(anyLong());
+    }
+
+    @Test
+    public void testShowIngredient() throws Exception {
+        IngredientCommand ingredientCommand = new IngredientCommand();
+
+        when(ingredientService.findRecipeByIngredientId(anyLong(), anyLong())).thenReturn(ingredientCommand);
+
+        mockMvc.perform(get("/recipe/1/ingredient/2/show"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("recipe/ingredient/show"))
+                .andExpect(model().attributeExists("ingredient"));
     }
 }

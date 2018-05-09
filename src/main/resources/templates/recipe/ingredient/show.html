@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Ingredients</title>
+    <meta charset="UTF-8"/>
+    <title>View Ingredient</title>
 
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet"
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
           crossorigin="anonymous" th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css}">
 
@@ -15,14 +14,13 @@
             integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
             crossorigin="anonymous" th:src="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.js}"></script>
 </head>
-
 <body>
-    <!--/*@thymesVar id="recipe" type="com.sudee.recipeapp.models.Recipe"*/-->
+<!--/*@thymesVar id="ingredient" type="com.sudee.recipeapp.commands.IngredientCommand"*/-->
     <div class="container-fluid col-md-6 offset-3" style="margin-top: 20px">
         <div class="card mb-12" style="max-width: 75rem;">
-            <h1 class="card-header text-white bg-dark">Ingredients</h1>
+            <h1 class="card-header text-white bg-dark">Ingredient</h1>
             <div class="card-body">
-                <div class="table-responsive" th:if="${not #lists.isEmpty(recipe.ingredients)}">
+                <div class="table-responsive">
                     <table class="table table-hover">
                         <thead class="thead-dark">
                         <tr>
@@ -33,12 +31,9 @@
                             <th></th>
                         </tr>
                         </thead>
-                        <tr th:each="ingredient : ${recipe.ingredients}">
+                        <tr>
                             <td th:text="${ingredient.id}"></td>
                             <td th:text="${ingredient.description} + ' - ' + ${ingredient.amount} + ' ' + ${ingredient.uom.getDescription()}"></td>
-                            <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id} + '/show'}">View</a></td>
-                            <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient' + ${ingredient.id} + '/update'}">Update</a></td>
-                            <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient' + ${ingredient.id} + '/delete'}">Delete</a></td>
                         </tr>
                     </table>
                 </div>
