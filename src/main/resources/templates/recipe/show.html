@@ -31,14 +31,14 @@
                 <div class="col-md-3">
                     <h5>Categories</h5>
                 </div>
-                <ul>
+                <ul class="col-md-3">
                     <li th:each="category : ${recipe.categories}">
                         <span th:text="${category.description}"></span>
                     </li>
                 </ul>
-                <div class="col-md-6 offset-9">
+                <div class="offset-3">
                     <img src="../../static/images/side-guacamole.jpg"
-                         th:src="@{/images/side-guacamole.jpg}"
+                         th:src="@{'/recipe/' + ${recipe.id} + '/recipeimage'}"
                          width="200" height="225">
                 </div>
             </div>
