@@ -20,14 +20,28 @@
 <!--/*@thymesVar id="recipe" type="com.sudee.recipeapp.models.Recipe"*/-->
 <div class="container-fluid col-md-6 offset-3" style="margin-top: 20px">
     <div class="card mb-12" style="max-width: 75rem;">
-        <h3 class="card-header text-white bg-dark" th:text="${recipe.description}">Recipe Description Here</h3>
+        <div class="card-header text-white bg-dark">
+            <div class="row">
+                <h3 class="col-md-6" style="margin-left: 15px;" th:text="${recipe.description}">Recipe Description Here</h3>
+                <a class="btn btn-light offset-4" href="#" th:href="@{'/recipe/' + ${recipe.getId()} + '/image'}" role="button">Change Image</a>
+            </div>
+        </div>
         <div class="card-body">
-            <h5 class="card-title">Categories</h5>
-            <ul>
-                <li th:each="category : ${recipe.categories}">
-                    <span th:text="${category.description}"></span>
-                </li>
-            </ul>
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>Categories</h5>
+                </div>
+                <ul>
+                    <li th:each="category : ${recipe.categories}">
+                        <span th:text="${category.description}"></span>
+                    </li>
+                </ul>
+                <div class="col-md-6 offset-9">
+                    <img src="../../static/images/side-guacamole.jpg"
+                         th:src="@{/images/side-guacamole.jpg}"
+                         width="200" height="225">
+                </div>
+            </div>
         </div>
     </div>
     <div class="card mb-12" style="max-width: 75rem; margin-top: 20px;">
@@ -78,12 +92,12 @@
         </div>
     </div>
     <div class="card mb-12" style="max-width: 75rem; margin-top: 20px;">
-        <span class="card-header text-white bg-dark">
+        <div class="card-header text-white bg-dark">
             <div class="row">
                 <h3 style="margin-left: 15px;">Ingredients</h3>
                 <a class="btn btn-light offset-9" href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}" role="button">View</a>
             </div>
-        </span>
+        </div>
         <div class="card-body">
             <ul>
                 <li th:each="ingredient : ${recipe.ingredients}"

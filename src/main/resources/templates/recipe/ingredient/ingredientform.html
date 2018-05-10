@@ -20,7 +20,7 @@
     <div class="card mb-12" style="max-width: 75rem;">
         <h3 class="card-header text-white bg-dark">Edit Ingredient</h3>
         <div class="card-body">
-            <form th:object="${ingredient}" th:action="@{'/recipe/' + ${ingredient.getRecipeId()} + '/ingredient'}">
+            <form th:object="${ingredient}" th:action="@{'/recipe/' + ${ingredient.getRecipeId()} + '/ingredient'}" method="post">
                 <input type="hidden" th:field="*{id}"/>
                 <div class="row">
                     <div class="col-md-3 form-group">
