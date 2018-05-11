@@ -3,12 +3,11 @@ package com.sudee.recipeapp.services;
 import com.sudee.recipeapp.commands.RecipeCommand;
 import com.sudee.recipeapp.converters.RecipeCommandToRecipe;
 import com.sudee.recipeapp.converters.RecipeToRecipeCommand;
+import com.sudee.recipeapp.exceptions.NotFoundException;
 import com.sudee.recipeapp.models.Recipe;
 import com.sudee.recipeapp.repositories.RecipeRepository;
-import javassist.NotFoundException;
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.weaver.ast.Not;
-import org.springframework.data.crossstore.ChangeSetPersister;
+
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -45,7 +44,7 @@ public class RecipeServiceImpl implements RecipeService {
         Optional<Recipe> recipeOptional = recipeRepository.findById(id);
 
         if (!recipeOptional.isPresent()) {
-            log.debug("Recipe Not Found. For ID value: " + id.toString() );
+            throw new NotFoundException("Recipe Not Found for Id value: " + id.toString());
         }
 
         return recipeOptional.get();

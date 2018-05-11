@@ -38,9 +38,11 @@ public class IngredientControllerTest {
     private RecipeService recipeService;
     @Mock
     private IngredientService ingredientService;
+    @Mock
+    private UnitOfMeasureService unitOfMeasureService;
 
     private IngredientController ingredientController;
-    private UnitOfMeasureService unitOfMeasureService;
+
 
     private MockMvc mockMvc;
 

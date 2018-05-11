@@ -1,11 +1,16 @@
 package com.sudee.recipeapp.controllers;
 
 import com.sudee.recipeapp.commands.RecipeCommand;
+import com.sudee.recipeapp.exceptions.NotFoundException;
 import com.sudee.recipeapp.services.RecipeService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.validation.Valid;
 
 @Slf4j
 @Controller
@@ -42,9 +47,20 @@ public class RecipeController {
     }
 
     @PostMapping("recipe")
-    public String saveOrUpdate(@ModelAttribute RecipeCommand command) {
+    public String saveOrUpdate(@Valid @ModelAttribute RecipeCommand command) {
         RecipeCommand savedCommand = recipeService.saveRecipeCommand(command);
 
         return "redirect:/recipe/" + savedCommand.getId() + "/show";
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(NotFoundException.class)
+    public ModelAndView handleNotFound(Exception e) {
+        log.error("Handling not found exception");
+        log.error(e.getMessage());
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("404error");
+        modelAndView.addObject("exception", e);
+        return modelAndView;
     }
 }
