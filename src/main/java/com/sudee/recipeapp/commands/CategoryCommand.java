@@ -6,9 +6,12 @@
 
 package com.sudee.recipeapp.commands;
 
+import com.sudee.recipeapp.models.Recipe;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Set;
 
 @Getter
 @Setter
@@ -16,4 +19,5 @@ import lombok.Setter;
 public class CategoryCommand {
     private Long id;
     private String description;
+    private Set<Recipe> recipes;
 }
