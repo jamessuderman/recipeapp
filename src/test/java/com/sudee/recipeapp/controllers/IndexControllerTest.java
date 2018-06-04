@@ -52,7 +52,7 @@ public class IndexControllerTest {
         recipes.add(new Recipe());
 
         Recipe anotherRecipe = new Recipe();
-        anotherRecipe.setId(1l);
+        anotherRecipe.setId("1");
 
         recipes.add(anotherRecipe);
 

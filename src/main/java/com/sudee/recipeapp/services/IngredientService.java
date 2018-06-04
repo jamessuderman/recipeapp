@@ -7,10 +7,9 @@
 package com.sudee.recipeapp.services;
 
 import com.sudee.recipeapp.commands.IngredientCommand;
-import com.sudee.recipeapp.models.Ingredient;
 
 public interface IngredientService {
-    IngredientCommand findRecipeByIngredientId(Long recipeId, Long ingredientId);
+    IngredientCommand findRecipeByIngredientId(String recipeId, String ingredientId);
     IngredientCommand saveIngredientCommand(IngredientCommand command);
-    void deleteIngredient(Long recipeId, Long id);
+    void deleteIngredient(String recipeId, String id);
 }
